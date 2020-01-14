@@ -16,7 +16,7 @@
     
     "Mappings" : {
       "InstanceAMI" : {
-      "us-east-1"      : { "64" : "ami-09ca8e1e" }
+      "ap-south-1"      : { "64" : "ami-0c0c7ce2eac698a17" }
       }
      },
     
