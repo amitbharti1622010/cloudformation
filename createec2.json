@@ -17,7 +17,8 @@
     "Mappings" : {
       "InstanceAMI" : {
       "us-east-1"      : { "64" : "ami-09ca8e1e" }
-    },
+      }
+     },
     
     "Outputs" : {
     "InstanceId" : {
