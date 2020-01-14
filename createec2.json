@@ -1,14 +1,41 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
+    
+    "AWSTemplateFormatVersion" : "2010-09-09",
+
+    "Description" : "AWS CloudFormation Sample Template EC2InstanceWithSecurityGroupSample: Create an Amazon EC2 instance running the Amazon Linux AMI. The AMI is chosen based on the region in which the stack is run. This example creates an EC2 security group for the instance to give you SSH access. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.",
+
     "Resources": {
-        "JenkinsEc2": {
+        "EC2I31IAG": {
             "Type": "AWS::EC2::Instance",
             "Properties": {
                 "InstanceType" : "t2.nano",
-                "ImageId": "ami-0c0c7ce2eac698a17",
-                "KeyName": "WinMachine"
-                               
+                    "KeyName": "WinMachine"
             }
         }
+    },
+    
+    "Mappings" : {
+      "InstanceAMI" : {
+      "us-east-1"      : { "64" : "ami-09ca8e1e" }
+    },
+    
+    "Outputs" : {
+    "InstanceId" : {
+      "Description" : "InstanceId of the newly created EC2 instance",
+      "Value" : { "Ref" : "EC2Instance" }
+    },
+    "AZ" : {
+      "Description" : "Availability Zone of the newly created EC2 instance",
+      "Value" : { "Fn::GetAtt" : [ "EC2Instance", "AvailabilityZone" ] }
+    },
+    "PublicDNS" : {
+      "Description" : "Public DNSName of the newly created EC2 instance",
+      "Value" : { "Fn::GetAtt" : [ "EC2Instance", "PublicDnsName" ] }
+    },
+    "PublicIP" : {
+      "Description" : "Public IP address of the newly created EC2 instance",
+      "Value" : { "Fn::GetAtt" : [ "EC2Instance", "PublicIp" ] }
     }
+  }
+    
 }
