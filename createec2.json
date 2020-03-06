@@ -10,7 +10,7 @@
             "Properties": {
                 "InstanceType" : "t2.nano",
                 "KeyName": "WinMachine",
-                "ImageId": "ami-4b7d0824"
+                "ImageId": "ami-020d5d26350c17069"
             }
         }
     }
